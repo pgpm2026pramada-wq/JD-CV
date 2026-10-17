@@ -57,7 +57,7 @@ def _cfg(name: str, default: str) -> str:
 
 
 def _analysis_model() -> str:
-    return _cfg("GEMINI_MODEL", "gemini-2.5-flash")
+    return _cfg("GEMINI_MODEL", "gemini-flash-latest")
 
 
 def _research_model() -> str:
