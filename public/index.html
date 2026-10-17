@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerMatch AI — JD & CV Matcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ INPUT VIEW ============ -->
+  <main id="inputView" class="input-view">
+    <div class="input-shell">
+      <header class="brand">
+        <div class="brand-mark">◆</div>
+        <div>
+          <h1>CareerMatch <span>AI</span></h1>
+          <p>Your all-in-one CV matcher, ATS checker, company researcher & interview coach.</p>
+        </div>
+      </header>
+
+      <div class="input-grid">
+        <section class="input-card">
+          <div class="input-card-head">
+            <h2>Job Description</h2>
+            <label class="upload-btn">
+              Upload file
+              <input type="file" id="jdFile" accept=".pdf,.doc,.docx,.txt" hidden />
+            </label>
+          </div>
+          <p class="hint" id="jdFileHint">PDF, DOCX, or TXT — or paste below.</p>
+          <textarea id="jdText" placeholder="Paste the job description here…"></textarea>
+        </section>
+
+        <section class="input-card">
+          <div class="input-card-head">
+            <h2>Your CV / Resume</h2>
+            <label class="upload-btn">
+              Upload file
+              <input type="file" id="cvFile" accept=".pdf,.doc,.docx,.txt" hidden />
+            </label>
+          </div>
+          <p class="hint" id="cvFileHint">PDF, DOCX, or TXT — or paste below.</p>
+          <textarea id="cvText" placeholder="Paste your CV here…"></textarea>
+        </section>
+      </div>
+
+      <div class="input-actions">
+        <button id="analyzeBtn" class="btn-primary">Analyze My Fit</button>
+        <button id="sampleBtn" class="btn-ghost">Load sample data</button>
+        <span id="inputError" class="input-error"></span>
+      </div>
+
+      <p class="disclaimer-note">
+        CareerMatch AI gives career guidance and decision support — not hiring decisions.
+        Findings are based only on the CV you submit; scores estimate JD↔CV alignment, not your odds of being hired.
+      </p>
+    </div>
+  </main>
+
+  <!-- ============ LOADING VIEW ============ -->
+  <div id="loadingView" class="loading-view hidden">
+    <div class="loader-ring"></div>
+    <h2 id="loadingTitle">Analyzing your fit…</h2>
+    <p id="loadingStep">Reading the job description and CV</p>
+  </div>
+
+  <!-- ============ RESULTS VIEW ============ -->
+  <div id="resultsView" class="results-view hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-mark">◆</span> CareerMatch <b>AI</b>
+      </div>
+      <nav id="nav" class="nav"></nav>
+      <button id="newAnalysisBtn" class="btn-ghost sidebar-new">↻ New analysis</button>
+    </aside>
+    <main class="content">
+      <div id="sections"></div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

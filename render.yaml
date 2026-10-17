@@ -1,0 +1,23 @@
+# Render Blueprint — deploys CareerMatch AI as a free Node web service.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: careermatch-ai
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Secret — Render will prompt you to enter this when you create the service.
+      # It is NOT stored in the repo.
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: GEMINI_RESEARCH_MODEL
+        value: gemini-2.5-flash
+      - key: NODE_VERSION
+        value: "22"
