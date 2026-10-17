@@ -5,6 +5,35 @@ job description, then builds a complete, ready-to-use interview prep report.
 Powered by **Google Gemini** (with live Google Search grounding for company
 research).
 
+> This repo ships the app **two ways**:
+> - **Streamlit** (`streamlit_app.py`) — deploy free on Streamlit Community Cloud ⬇️ see below
+> - **Node/Express** (`server.js`) — run locally with `npm start`
+
+---
+
+## 🚀 Deploy on Streamlit Community Cloud (free)
+
+1. Push this repo to GitHub (done).
+2. Go to **https://share.streamlit.io** → sign in with GitHub.
+3. **Create app** → pick this repo, branch `main`, main file **`streamlit_app.py`**.
+4. Open **Advanced settings → Secrets** and paste:
+   ```toml
+   GEMINI_API_KEY = "your_gemini_key_here"
+   ```
+5. **Deploy** → in ~2 min you get a public URL like `https://<app>.streamlit.app`.
+
+**Run the Streamlit app locally** (needs Python 3.10+):
+```bash
+pip install -r requirements.txt
+# create .streamlit/secrets.toml from the example and add your key
+streamlit run streamlit_app.py
+```
+
+> ⚠️ Anyone with the public URL can spend your Gemini quota — fine for a demo,
+> but watch your usage in Google AI Studio.
+
+---
+
 ## What it does
 
 Submit a **Job Description** and your **CV** (paste text, or upload PDF / DOCX /

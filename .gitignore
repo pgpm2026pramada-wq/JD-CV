@@ -3,3 +3,10 @@ node_modules/
 *.log
 .DS_Store
 uploads/
+
+# Python / Streamlit
+__pycache__/
+*.pyc
+.venv/
+venv/
+.streamlit/secrets.toml
